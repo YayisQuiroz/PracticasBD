@@ -1,0 +1,64 @@
+Table municipio {
+  id integer [primary key]
+  Idpersona integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table municipioVivienda {
+  id integer [primary key]
+  idVivienda integer [not null]
+  idmunicipio integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table persona {
+  id integer [primary key]
+  idmunicipio integer [not null]
+  idvivienda integer [not null]
+  idpropiedad integer [not null]
+  Nombre varchar(20) [not null]
+  cabezadeFamilia varchar(50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table PersonaVivienda {
+  id integer [primary key]
+  idpersona integer [not null]
+  idvivienda integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table vivienda {
+  id integer [primary key]
+  idhabitante integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "municipio"."id" < "persona"."idmunicipio"
+Ref: "municipio"."id" < "municipioVivienda"."idmunicipio"
+Ref: "persona"."id" < "vivienda"."idhabitante"
+Ref: "persona"."id" < "municipio"."Idpersona"
+Ref: "persona"."idpropiedad" < "PersonaVivienda"."id"
+Ref: "persona"."idvivienda" < "vivienda"."id"
+Ref: "vivienda"."id" < "municipioVivienda"."idVivienda"
+Ref: "vivienda"."id" < "PersonaVivienda"."idvivienda"

@@ -1,0 +1,116 @@
+Table soldado {
+  id integer [primary key]
+  idSoldado integer [unique, not null]
+  nombre varchar(40) [not null]
+  grado varchar(20) [not null]
+  idCuartel integer
+  idCompañia integer
+  idCuerpo integer
+  idServicio integer
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table compañia {
+  id integer [primary key]
+  NCompañia varchar(10) [unique, not null]
+  Actividad varchar(20) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table servicio {
+  id integer [primary key]
+  codigoServicio varchar(10) [unique, not null]
+  descripcion varchar(40) [not null]
+ IdUsuarioCrea varchar(50) [not null]
+ IdUsuarioModifica varchar(50) [not null]
+ fechaCreacion datatime [not null]
+ fechaModificacion datatime [not null]
+ status bit [default: 1, not null]
+}
+
+Table cuerpo {
+  id integer [primary key]
+  Codigo varchar(10) [unique, not null]
+  denominacion varchar(10) [unique, not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table cuartel {
+  id integer [primary key]
+  Codigo varchar(20) [unique, not null]
+  nombre varchar(40) [not null]
+  ubicacion varchar(30) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table soldado_cuartel {
+  id integer [primary key]
+  idSoldado integer
+  idCuartel integer
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table soldado_compañia {
+  id integer [primary key]
+  idSoldado integer
+  idCompañia integer
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table soldado_cuerpo {
+  id integer [primary key]
+  idSoldado integer
+  idCuerpo integer
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table soldado_servicio {
+  id integer [primary key]
+  idSoldado integer [not null]
+  idServicio integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "soldado"."id" < "soldado_cuartel"."idSoldado"
+Ref: "cuartel"."id" < "soldado_cuartel"."idCuartel"
+
+Ref: "soldado"."id" < "soldado_compañia"."idSoldado"
+Ref: "compañia"."id" < "soldado_compañia"."idCompañia"
+
+Ref: "soldado"."id" < "soldado_cuerpo"."idSoldado"
+Ref: "cuerpo"."id" < "soldado_cuerpo"."idCuerpo"
+
+Ref: "soldado"."id" < "soldado_servicio"."idSoldado"
+Ref: "servicio"."id" < "soldado_servicio"."idServicio"

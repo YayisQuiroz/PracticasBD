@@ -1,0 +1,6 @@
+
+Carretera (id, idtramos, nombre, longitud, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Municipales (id, entrada, salida, nombre, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Tramo (id, idMunicipales, longitud, inicio, fin, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

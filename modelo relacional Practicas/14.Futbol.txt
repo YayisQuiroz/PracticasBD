@@ -1,0 +1,16 @@
+Jugador (id, nombre, idEquipo, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Equipo (id, nombre, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Puesto (id, nombre, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Partido (id, fecha, ciudad, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Colegiados (id, nombre, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+--------------------------------------------------------------------
+PartidoColegiado (id, idPartido, idColegiado, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+JugadorPuesto (id, idJugador, idPuesto, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+EquiposPartido (id, idEquipo, idPartido, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

@@ -1,0 +1,16 @@
+Vehiculo (id, marca, modelo, cilindros, precio, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Venta (id, fechaV, matricula, idVehiculo, idcliente, idvendedor, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+ocheUsado (id, marca, modelo, matricula, precio, cilindros, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Adicionales (id, nombre, idModelo, descripcion, precio, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cliente (id, nombre, RFC, direccion, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Vendedores (id, nombre, RFC, direccion, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+---------------------------------------------------------------------------------
+ModeloVehiculo (id, idadicionales, idVehiculo, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+CocheUsadoCliente (id, preciodeTransacciones, idcliente, idcocheUsado, fecha, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

@@ -1,0 +1,84 @@
+Table Departamentos {
+  id integer [ primary key, not null]
+  name varchar(50) [not null]
+  IdFacultad integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Facultades {
+  id integer [primary key, not null]
+  name varchar(50) [not null]
+  ubicacion varchar (50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Catedras {
+  id integer [ primary key, not null]
+  name varchar(50) [not null]
+  IdFacultad integer [not null]
+  IdDepartamento foreign [not null]
+  ubicacion varchar (50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Profesores {
+  id integer [ primary key , not null]
+  nombre varchar(50) [not null]
+  CURP char(10) [not null]
+  RFC char(10) [not null]
+  IdDepartamento integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table CatedrasProfesor {
+  id integer [ primary key , not null]
+  IdCatedra integer [not null]
+  IdProfesor integer [not null]
+  fechadeAsignacion datetime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table AreasDeConocimiento {
+  id integer [ primary key , not null]
+  name varchar(50) [not null]
+  IdDepartamento foreign [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "Facultades"."id" < "Departamentos"."IdFacultad"
+
+Ref: "Departamentos"."id" < "AreasDeConocimiento"."id"
+
+Ref: "Departamentos"."id" < "Catedras"."IdDepartamento"
+
+Ref: "Facultades"."id" < "Catedras"."IdFacultad"
+
+Ref: "Profesores"."id" < "CatedrasProfesor"."IdProfesor"
+
+Ref: "Catedras"."id" < "CatedrasProfesor"."IdCatedra"
+
+Ref: "Departamentos"."id" < "Profesores"."IdDepartamento"

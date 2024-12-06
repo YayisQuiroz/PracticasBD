@@ -1,0 +1,13 @@
+Hoteles (id, CodigoHotel, nombre, direccion, ciudad, telefono, Nplaza, idSucursal, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Sucursal (id, codigoSucursal, direccion, teléfono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Turista (id, codigoTurista, Nombre, Apellidos, direccion, teléfono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Vuelos (id, fecha, origen, destino, PlazaTotales, plazasTuristicas, idSucursal, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+---------------------------------------------------------------------
+HotelTurista (id, idHotel, idTurista, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+TuristaSucursal (id, idTurista, idSucursal, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+TuristaVuelos (id, idTurista, idVuelos, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

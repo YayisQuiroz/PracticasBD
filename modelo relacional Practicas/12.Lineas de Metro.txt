@@ -1,0 +1,13 @@
+Linea (id, nombre, color, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Tren (id, tipo, capacidad, idLinea, idCochera, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Estaciones (id, nombre, direccion, codigo, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Accesos (id, codigo, idEstacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cocheras (id, ubicacion, capacidad, idEstacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+-------------------------------------------------------------
+AccesosLineas (id, idAcceso, idLinea, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+LineasEstacionales (id, idLinea, idEstacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

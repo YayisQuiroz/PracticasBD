@@ -1,0 +1,14 @@
+Alumno (id, nombre, apellidos, RM, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Examen (id, Nexamen, Npregunta, FechaR, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Practica (id, codigoP, titulo, GradoDificultad, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Profesor (id, matricula, nombre, apellido, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+--------------------------------------------------------------------------------
+Profesor_Practica (id, idprofesor, idPratica, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Alumno_Practica (id, idalumno, idPratica, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Alumno_Examen (id, idalumno, idexamen, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

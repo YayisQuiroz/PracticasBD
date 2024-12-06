@@ -1,0 +1,136 @@
+Table cama {
+  id integer [primary key]
+  numeroCmara varchar(10) [not null]
+  fechaAsignacion datatime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+Table planta {
+  id integer [primary key]
+  nombre varchar(10) [not null]
+  idcama interger [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table paciente {
+  id integer [primary key]
+  nombre varchar(20) [not null]
+  apellidos varchar(20) [not null]
+  NSS varchar(11) [not null, unique]
+  RFC varchar(11) [not null, unique]
+  fechaN datatime [not null]
+  idcama interger [not null]
+  fechaAsignacion datatime [not null]
+  idvisita interger [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+Table  medico {
+  id integer [primary key]
+  nombre varchar(50) [not null]
+  apellidos varchar(20) [not null]
+  RFM varchar(20) [not null, unique]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+ 
+}
+Table  diagnostico {
+  id integer [primary key]
+  codigoDiag varchar(20) [not null]
+  description varchar(50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+Table  visita {
+  id integer [primary key]
+  Hinicio datatime [not null]
+  Hfinal datatime [not null]
+  NpaseV varchar(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table plantaCama {
+  id interger [primary key]
+  idPlanta integer [not null]
+  idcama interger [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+
+}
+table medicopaciente{
+  id interger [primary key]
+  idpaciente interger [not null]
+  idmedico interger [not null]
+  fecha datatime [not null]
+  hora datatime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+table Diagnosticopaciente{
+  id interger [primary key]
+  idpaciente interger [not null]
+  idDiagnostico interger [not null]
+  fecha datatime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+table DiagnosticoMedico{
+  id interger [primary key]
+  idMedico interger [not null]
+  idDiagnostico interger [not null]
+  fecha datatime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "paciente"."id" < "medicopaciente"."idpaciente"
+
+Ref: "medico"."id" < "medicopaciente"."idmedico"
+
+Ref: "paciente"."id" < "Diagnosticopaciente"."idpaciente"
+
+Ref: "diagnostico"."id" < "Diagnosticopaciente"."idDiagnostico"
+
+Ref: "planta"."id" < "plantaCama"."idPlanta"
+
+Ref: "cama"."id" < "plantaCama"."idcama"
+
+Ref: "cama"."id" < "paciente"."idcama"
+
+Ref: "paciente"."idvisita" < "visita"."id"
+
+Ref: "diagnostico"."id" < "DiagnosticoMedico"."idDiagnostico"
+
+Ref: "medico"."id" < "DiagnosticoMedico"."idMedico"

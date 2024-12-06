@@ -1,0 +1,100 @@
+Table Jugador {
+  id integer [increment, unique, not null, primary key]
+  nombre varchar(50) [unique, not null]
+  IdEquipo integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Equipo {
+  id integer [increment, unique, not null, primary key]
+  nombre varchar(50) [unique, not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Puesto {
+  id integer [increment, unique, not null, primary key]
+  nombre  varchar(50) [unique, not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table JugadorPuesto {
+  id integer [increment, unique, not null, primary key]
+  IdJugador integer [not null]
+  IdPuesto integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Partido {
+  id integer [increment, unique, not null, primary key]
+  fecha datetime [not null]
+  ciudad char(20) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table EquiposPartido {
+  id integer [increment, unique, not null, primary key]
+  IdEquipo integer [not null]
+  IdPartido integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Colegiados {
+  id integer [increment, unique, not null, primary key]
+  nombre varchar(50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+
+
+Table PartidoColegiado {
+  id integer [increment, unique, not null, primary key]
+  IdPartido integer [not null]
+  IdColegiado integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "Equipo"."id" < "Jugador"."IdEquipo"
+
+Ref: "Puesto"."id" < "JugadorPuesto"."IdPuesto"
+
+Ref: "Jugador"."id" < "JugadorPuesto"."IdJugador"
+
+Ref: "Partido"."id" < "EquiposPartido"."IdPartido"
+
+Ref: "Equipo"."id" < "EquiposPartido"."IdEquipo"
+
+Ref: "Partido"."id" < "PartidoColegiado"."IdPartido"
+
+Ref: "Colegiados"."id" < "PartidoColegiado"."IdColegiado"

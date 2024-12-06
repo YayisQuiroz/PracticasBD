@@ -1,0 +1,17 @@
+Soldado (id, idSoldado, nombre, grado, idCuartel, idCompañia, idCuerpo, idServicio, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Compañia (id, NCompañia, Actividad,IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Servicio (id, codigoServicio, descripcion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cuerpo (id, Codigo, denominacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cuartel (id, Codigo, nombre, ubicacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+-----------------------------------------------------------------------
+Soldado_Cuartel (id, idSoldado, idCuartel, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Soldado_Compañia (id, idSoldado, idCompañia, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Soldado_Cuerpo (id, idSoldado, idCuerpo, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Soldado_Servicio (id, idSoldado,idServicio IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

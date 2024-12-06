@@ -1,0 +1,14 @@
+Departamentos (id, name, idFacultad, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Facultades (id, name, ubicacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Catedras (id, name, idFacultad, idDepartamento, ubicacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Profesores (id, nombre, CURP, RFC, idDepartamento, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+AreasDeConocimiento (id, name, idDepartamento, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+-----------------------------------------------------------------------------
+CatedrasProfesor (id, idCatedra, idProfesor, fechadeAsignacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+
+

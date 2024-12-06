@@ -1,0 +1,40 @@
+Table carretera {
+  id integer [primary key]
+  idtramos integer [not null]
+  nombre varchar(20)
+  longitud varchar(40)
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table municipales {
+  id integer [primary key]
+  entrada varchar [not null]
+  salida varchar [not null]
+  nombre varchar(20)
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table tramo {
+  id integer [primary key]
+  idMunicipales integer [not null]
+  longitud varchar
+  inicio varchar
+  fin varchar
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "tramo"."idMunicipales" < "municipales"."id"
+
+Ref: "tramo"."id" < "carretera"."idtramos"

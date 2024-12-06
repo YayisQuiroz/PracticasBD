@@ -1,0 +1,92 @@
+Table  alumno {
+  id integer [primary key]
+  nombre varchar(50) [not null]
+  apellidos varchar(20) [not null]
+  matricula varchar(20) [not null, unique]
+  grupo varchar(5) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+  }
+
+Table Examen {
+  id interger [primary key]
+  Nexamen varchar(50) [not null]
+  Npregunta varchar(20) [not null]
+  FechaR datatime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+  }
+
+Table Practica{
+  id interger [primary key]
+  codigoP interger(10) [not null]
+  titulo varchar(50) [not null]
+  GradoDificultad varchar(50) [not null] 
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+  }
+
+Table profesor {
+  id interger [primary key]
+  matricula varchar(20) [not null]
+  nombre varchar(20) [not null]
+  apellido varchar(20) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+  }
+
+table Profesor_Practica{
+  id interger [primary key]
+  idprofesor interger
+  idPratica interger
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+table Alumno_Practica{
+  id interger [primary key]
+  idalumno interger
+  idPratica interger
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+table Alumno_Examen{
+  id interger [primary key]
+  idalumno interger
+  idexamen interger
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+
+Ref: "alumno"."id" < "Alumno_Practica"."idalumno"
+
+Ref: "Examen"."id" < "Alumno_Examen"."idexamen"
+
+Ref: "alumno"."id" < "Alumno_Examen"."idalumno"
+
+Ref: "Practica"."id" < "Alumno_Practica"."idPratica"
+
+Ref: "Practica"."id" < "Profesor_Practica"."idPratica"
+
+Ref: "profesor"."id" < "Profesor_Practica"."idprofesor"

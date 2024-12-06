@@ -1,0 +1,111 @@
+Table Vehiculo {
+  id integer [primary key]
+  marca varchar(10) [not null]
+  modelo varchar(10) [not null]
+  cilindros varchar(10) [not null]
+  precio integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table CocheUsado {
+  id integer [primary key]
+  marca varchar(10) [not null]
+  modelo varchar(10) [not null]
+  matricula varchar(10) [not null]
+  precio integer [not null]
+  cilindros varchar(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Adicionales {
+  id integer [primary key]
+  nombre varchar(10) [not null]
+  idModelo varchar(10) [not null]
+  descripcion varchar(50) [not null]
+  precio integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Cliente {
+  id integer [primary key]
+  nombre varchar(50) [not null]
+  RFC varchar(10) [not null]
+  direccion varchar(10) [not null]
+  telefono varchar(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Vendedores {
+  id integer [primary key]
+  nombre varchar(50) [not null]
+  RFC varchar(10) [not null]
+  direccion varchar(10) [not null]
+  telefono varchar(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table ModeloVehiculo {
+  id integer [primary key]
+  idadicionales integer [not null]
+  idVehiculo integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table CocheUsadoCliente {
+  id integer [primary key]
+  preciodeTransacciones varchar(50) [not null]
+  idcliente integer [not null]
+  idcocheUsado integer [not null]
+  fecha datetime [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Venta {
+  id integer [primary key]
+  fechaV datetime [not null]
+  matricula varchar(10) [not null]
+  idVehiculo integer [not null]
+  idcliente integer [not null]
+  idvendedor integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "Adicionales"."id" < "ModeloVehiculo"."idadicionales"
+Ref: "Vehiculo"."id" < "ModeloVehiculo"."idVehiculo"
+Ref: "Cliente"."id" < "CocheUsadoCliente"."idcliente"
+Ref: "CocheUsado"."id" < "CocheUsadoCliente"."idcocheUsado"
+Ref: "Vehiculo"."id" < "Venta"."idVehiculo"
+Ref: "Cliente"."id" < "Venta"."idcliente"
+Ref: "Vendedores"."id" < "Venta"."idvendedor"

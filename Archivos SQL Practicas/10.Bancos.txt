@@ -1,0 +1,79 @@
+Table sucursal {
+  id integer [primary key , not null]
+  direccion varchar(75) [not null]
+  telefono char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table cuentacorriente {
+  id integer [primary key , not null]
+  saldo int [not null]
+  IdSucursal integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+Table cliente {
+  id integer [primary key , not null]
+  direccion varchar(75) [not null]
+  curp char (18) [not null]
+  nombre varchar (50) [not null]
+  telefono char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Domiciliacion {
+  id integer [primary key , not null]
+  fecha datatime [not null] 
+  monto int [not null]
+  IdCuentaCorriente integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table prestamo  {
+  id integer [primary key , not null]
+  interes int [not null]
+  curp char (18) [not null]
+  monto int  [not null]
+  IdCliente integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table CuentaCliente {
+  id integer [primary key , not null]
+  IdCliente integer [not null]
+  IdCuentaCorriente integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "cliente"."id" < "CuentaCliente"."IdCliente"
+
+Ref: "cuentacorriente"."id" < "CuentaCliente"."IdCuentaCorriente"
+
+Ref: "sucursal"."id" < "cuentacorriente"."IdSucursal"
+
+Ref: "cuentacorriente"."id" < "Domiciliacion"."IdCuentaCorriente"
+
+Ref: "cliente"."id" < "prestamo"."IdCliente"

@@ -1,0 +1,98 @@
+Table hoteles {
+  id integer [primary key]
+  CodigoHotel bigint [not null]
+  nombre varchar(20) [not null]
+  direccion varchar(50) [not null]
+  ciudad varchar(50) [not null]
+  telefono varchar(50) [not null]
+  Nplaza integer [not null]
+  idSucursal integer 
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table HotelTurista {
+  id integer [primary key]
+  idHotel integer [not null]
+  idTurista integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Sucursal {
+  id integer [primary key]
+  codigoSucursal integer [not null]
+  direccion varchar(50) [not null]
+  telefono varchar(50) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table turista {
+  id integer [primary key]
+  codigoTurista integer
+  Nombre varchar(20) [not null]
+  Apellidos varchar(20) [not null]
+  direccion varchar(50) [not null]
+  telefono varchar(15) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table TuristaSucursal {
+  id integer [primary key]
+  idTurista integer [not null]
+  idSucursal integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table TuristaVuelos {
+  id integer [primary key]
+  idTurista integer [not null]
+  idVuelos integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Vuelos {
+  id bigint [primary key]
+  fecha datetime 
+  origen varchar(30) [not null]
+  destino varchar(50) [not null]
+  PlazaTotales integer [not null]
+  plazasTuristicas integer [not null]
+  idSucursal integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "hoteles"."id" < "HotelTurista"."idHotel"
+Ref: "Sucursal"."id" < "Vuelos"."idSucursal"
+Ref: "Sucursal"."id" < "hoteles"."idSucursal"
+Ref: "Sucursal"."id" < "TuristaSucursal"."idSucursal"
+Ref: "turista"."id" < "HotelTurista"."idTurista"
+Ref: "turista"."id" < "TuristaVuelos"."idTurista"
+Ref: "turista"."id" < "TuristaSucursal"."idTurista"
+Ref: "Vuelos"."id" < "TuristaVuelos"."idVuelos"

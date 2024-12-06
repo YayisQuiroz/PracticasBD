@@ -1,0 +1,87 @@
+Table Cliente {
+  id integer [ primary key , not null]
+  nombre varchar(50) [not null]
+  CURP char(10) [not null]
+  direccion varchar(100)
+  telefono char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Reserva {
+  id integer [ primary key , not null]
+  fechaInicio datetime [not null]
+  fechaFinal datetime [not null]
+  IdAgencia integer  [not null]
+  IdCliente integer  [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Coche {
+  id integer [ primary key , not null]
+  nombre varchar(50) [not null]
+  año char (4) [not null]
+  marca char (10) [not null]
+  modelo char (10) [not null]
+  IdGaraje integer  [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Garaje {
+  id integer [ primary key , not null]
+  ubicacion varchar(70) [not null]
+  telefono char(10) [not null]
+  IdCoche integer  [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Agencia {
+  id integer [ primary key , not null]
+  nombre  char(10) [not null]
+  dirreccion varchar(75) [not null]
+  correo varchar(50) [not null]
+  telefono char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table ReservaCoche {
+  id integer [ primary key , not null]
+  IdReserva  integer  [not null]
+  IdCoche integer  [not null]
+  correo varchar(50) [not null]
+  telefono char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "Agencia"."id" < "Reserva"."IdAgencia"
+
+Ref: "Cliente"."id" < "Reserva"."IdCliente"
+
+Ref: "Reserva"."id" < "ReservaCoche"."IdReserva"
+
+Ref: "Coche"."id" < "ReservaCoche"."IdCoche"
+
+Ref: "Coche"."id" < "Garaje"."IdCoche"

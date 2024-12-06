@@ -1,0 +1,10 @@
+Municipio (id, Idpersona, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Persona (id, idmunicipio, idvivienda, idpropiedad, Nombre, cabezadeFamilia, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Vivienda (id, idhabitante, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+------------------------------------------------------------------------------
+PersonaVivienda (id, idpersona, idvivienda, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+MunicipioVivienda (id, idVivienda, idmunicipio, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

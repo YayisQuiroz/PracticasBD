@@ -1,0 +1,94 @@
+Table Linea {
+  id integer [primary key , not null]
+  nombre varchar[20]
+  color varchar[10]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Tren {
+  id integer [ primary key , not null]
+  tipo  char(10) [not null]
+  capacidad varchar(120) [not null]
+  IdLinea integer [not null]
+  IdCochera integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Estaciones {
+  id integer [primary key , not null]
+  nombre varchar(20) [not null]
+  direccion varchar(25) [not null]
+  codigo char(10) [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table LineasEstaciones {
+  id integer [primary key , not null]
+  IdLinea integer [not null]
+  IdEstacion integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Accesos {
+  id integer [primary key , not null]
+  codigo integer [not null]
+  IdEstacion integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table Cocheras {
+  id integer [primary key , not null]
+  ubicacion varchar (25) [not null]
+  capacidad varchar (50) [not null]
+  IdEstacion integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+Table AccesosLineas {
+  id integer [primary key , not null]
+  IdAcceso integer [not null]
+  IdLinea integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+
+Ref: "Linea"."id" < "AccesosLineas"."IdLinea"
+
+Ref: "Accesos"."id" < "AccesosLineas"."IdAcceso"
+
+Ref: "Estaciones"."id" < "LineasEstaciones"."IdEstacion"
+
+Ref: "Linea"."id" < "LineasEstaciones"."id"
+
+Ref: "Linea"."id" < "Tren"."IdLinea"
+
+Ref: "Cocheras"."id" < "Tren"."id"
+
+Ref: "Estaciones"."id" < "Cocheras"."id"

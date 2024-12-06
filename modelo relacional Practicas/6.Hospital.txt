@@ -1,0 +1,19 @@
+Cama (id, numeroCmara, fechaAsignacion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Planta (id, nombre, idcama, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Paciente (id, nombre, apellidos, NSS, RFC, fechaN, idcama, fechaAsignacion, idvisita, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Medico (id, nombre, apellidos, NFM, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Diagnostico (id, codigoDiag, description, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Visita (id, Hinicio, Hfinal, NpaseV, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+----------------------------------------------------------------------------
+PlantaCama (id, idPlanta, idcama, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+MedicoPaciente (id, idpaciente, idmedico, fecha, hora, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+DiagnosticoPaciente (id, idpaciente, idDiagnostico, fecha, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+DiagnosticoMedico (id, idMedico, idDiagnostico, fecha, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

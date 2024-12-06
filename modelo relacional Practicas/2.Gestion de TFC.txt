@@ -1,0 +1,15 @@
+Alumnos (id, matricula, RFC, Nombre, idTFC, idProfesor, idGrupoIdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Grupo (id, Ngrupo, Nombre, Ncomponentes, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Profesor (id, RFC, Nombre, Domicilio, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+TFC (id, tema, nOrden, fechaComienzo, Idtribunal, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Tribunal (id, lugarExamen, numeroComponentes, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+-------------------------------------------------------------------------------
+Alumno_Profesor (id, idAlumno, idProfesor, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+TribunalProfesor (id, idTribunal, idProfesor, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+TribunalTFC (id, idTribunal, idTFC, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

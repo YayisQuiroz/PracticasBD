@@ -1,0 +1,17 @@
+Viaje (id, fechaInicio, fechaFinal, idTour, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cliente (id, nombre, direccion, correo, telefono,IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Tour (id, nombre, tipo, descripcion, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+PuntodeRuta (id, nombre, tipo, VisitaoEstancia, idTour, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Hoteles (id, nombre, direccion, correo, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+---------------------------------------------------------------------
+HotelCliente (id, idCliente, idHotel, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+HotelPuntos (id, idPuntosruta, idHotel, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+ViajeCliente (id, idCliente, idViaje, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

@@ -1,0 +1,13 @@
+Cliente (id, claveAlfanumerica, nombre, CURP, direccion, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Reserva (id, claveAlfanumerica, fechaInicio, fechaFinal, idAgencia, idCliente, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Coche (id, claveAlfanumerica, nombre, año, marca, modelo, idGaraje, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Garaje (id, claveAlfanumerica, ubicacion, telefono, idCoche, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Agencia (id, claveAlfanumerica, nombre, direccion, correo, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+--------------------------------------------------------------
+ReservaCoche (id, claveAlfanumerica, idReserva, idCoche, correo, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+

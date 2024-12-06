@@ -1,0 +1,12 @@
+Sucursal (id, direccion, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+CuentaCorriente (id, saldo, código, idSucursal, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Cliente (id, direccion, curp, nombre, telefono, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Domiciliacion (id, fecha, monto, idCuentaCorriente, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+
+Prestamo (id, interes, curp, monto, idCliente, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)
+---------------------------------------------------------
+
+CuentaCliente (id, idCliente, idCuentaCorriente, IdUsuarioCrea, IdUsuarioModifica, FechaCreacion, FechaModificacion, status)

@@ -1,0 +1,35 @@
+Table TribunalProfesor {
+  id integer [primary key]
+  idTribunal integer [not null]
+  idProfesor integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Table TribunalTFC {
+  id integer [primary key]
+  idTribunal integer [not null]
+  idTFC integer [not null]
+  IdUsuarioCrea varchar(50) [not null]
+  IdUsuarioModifica varchar(50) [not null]
+  fechaCreacion datatime [not null]
+  fechaModificacion datatime [not null]
+  status bit [default: 1, not null]
+}
+
+Ref: "Alumnos"."id" < "Alumno_Profesor"."idAlumno"
+
+Ref: "Alumnos"."idTFC" < "TFC"."id"
+Ref: "Profesor"."id" < "Alumno_Profesor"."idProfesor"
+Ref: "Profesor"."id" < "TribunalProfesor"."idProfesor"
+
+Ref: "Profesor"."id" < "Alumnos"."idProfesor"
+
+Ref: "TFC"."id" < "TribunalTFC"."id"
+
+Ref: "Tribunal"."id" < "TribunalTFC"."idTribunal"
+
+Ref: "Grupo"."id" < "Alumnos"."idGrupo"
